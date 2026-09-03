@@ -7,11 +7,44 @@ const description=document.getElementById("authDescription");
 const toast=document.getElementById("toast");
 const accountMessage=document.getElementById("accountMessage");
 
+// Cache em memoria para evitar leituras repetidas durante os testes.
+const localCache={users:null,session:null};
+
+// Camada de dados: substitua estes metodos por chamadas a uma API/banco no futuro.
+const database={
+  getUsers(){
+    if(Array.isArray(localCache.users))return localCache.users;
+    try{
+      const users=JSON.parse(localStorage.getItem(databaseKey)||"[]");
+      localCache.users=Array.isArray(users)?users:[];
+    }catch(error){localCache.users=[]}
+    return localCache.users;
+  },
+  saveUsers(users){
+    localCache.users=users;
+    localStorage.setItem(databaseKey,JSON.stringify(users));
+  },
+  getSession(){
+    if(localCache.session!==null)return localCache.session;
+    try{localCache.session=JSON.parse(localStorage.getItem(sessionKey)||"null")}
+    catch(error){localCache.session=null}
+    return localCache.session;
+  },
+  saveSession(session){
+    localCache.session=session;
+    localStorage.setItem(sessionKey,JSON.stringify(session));
+  },
+  clearSession(){
+    localCache.session=null;
+    localStorage.removeItem(sessionKey);
+  }
+};
+
 function getUsers(){
-  try{return JSON.parse(localStorage.getItem(databaseKey)||"[]");}
-  catch(error){return []}
+  return database.getUsers();
 }
 
+// Atualiza as mensagens de validacao sem alterar a estrutura dos formularios.
 function setNote(formId,message){document.getElementById(formId).textContent=message}
 
 function showToast(message){
@@ -44,12 +77,14 @@ function showHome(){
   window.scrollTo(0,0);
 }
 
+// Eventos da tela inicial, das abas e do fechamento do modal.
 document.querySelectorAll(".actions button").forEach(button=>button.addEventListener("click",()=>openAuth(button.dataset.auth)));
 document.querySelectorAll(".auth-tab").forEach(button=>button.addEventListener("click",()=>switchTab(button.dataset.tab)));
 document.getElementById("closeModal").addEventListener("click",closeAuth);
 backdrop.addEventListener("click",event=>{if(event.target===backdrop)closeAuth()});
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeAuth()});
 
+// Cadastro local usado enquanto o banco definitivo ainda nao foi conectado.
 document.getElementById("registerForm").addEventListener("submit",event=>{
   event.preventDefault();
   const form=new FormData(event.currentTarget);
@@ -58,29 +93,32 @@ document.getElementById("registerForm").addEventListener("submit",event=>{
   const users=getUsers();
   if(users.some(user=>user.email===email)){setNote("registerNote","Este e-mail já está cadastrado.");return}
   users.push({id:Date.now(),name,email,password:form.get("password")});
-  localStorage.setItem(databaseKey,JSON.stringify(users));
+  database.saveUsers(users);
   event.currentTarget.reset();
   switchTab("login");
   setNote("loginNote","Conta criada. Agora entre com seus dados.");
 });
 
+// Login local: valida os dados armazenados e cria uma sessao de teste.
 document.getElementById("loginForm").addEventListener("submit",event=>{
   event.preventDefault();
   const form=new FormData(event.currentTarget);
   const email=form.get("email").trim().toLowerCase();
   const user=getUsers().find(item=>item.email===email&&item.password===form.get("password"));
   if(!user){setNote("loginNote","E-mail ou senha inválidos.");return}
-  localStorage.setItem(sessionKey,JSON.stringify({id:user.id,name:user.name,email:user.email}));
+  database.saveSession({id:user.id,name:user.name,email:user.email});
   event.currentTarget.reset();closeAuth();showAccount(user);
 });
 
+// Remove a sessao atual e retorna para a tela inicial.
 document.getElementById("logoutButton").addEventListener("click",()=>{
-  localStorage.removeItem(sessionKey);
+  database.clearSession();
   showHome();
   showToast("Você saiu da sua conta.");
 });
 
+// Restaura a sessao salva quando a pagina e aberta novamente.
 try{
-  const session=JSON.parse(localStorage.getItem(sessionKey)||"null");
+  const session=database.getSession();
   if(session?.name)showAccount(session);
-}catch(error){localStorage.removeItem(sessionKey)}
+}catch(error){database.clearSession()}

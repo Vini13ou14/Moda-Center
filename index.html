@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- Container principal: alterna entre a tela inicial e a tela da conta. -->
 <div class="app">
+  <!-- Area de destaque com a marca, a chamada principal e a imagem do local. -->
   <section class="hero">
     <div class="orange-shape"></div>
     <div class="content">
@@ -22,6 +24,7 @@
     <div class="white-curve"></div>
   </section>
 
+  <!-- Menu inferior e atalhos de autenticacao. -->
   <section class="bottom">
     <nav class="nav" aria-label="Menu principal">
       <div class="nav-item"><div class="icon">&#9831;</div><span>COMPRE<br>COM FACILIDADE</span></div>
@@ -36,16 +39,19 @@
       <button data-auth="register">CADASTRAR</button>
     </div>
   </section>
+  <!-- Tela exibida depois que o usuario entra na conta. -->
   <section class="account-page" id="accountPage" aria-live="polite">
     <div class="account-content">
       <img class="auth-logo" src="logo.png" alt="Moda Center">
-      <h2>VocÃª entrou na sua conta</h2>
+      <h2>Voc&ecirc; entrou na sua conta</h2>
       <p id="accountMessage">Bem-vindo(a) ao Moda Center.</p>
-      <button class="logout-button" id="logoutButton">SAIR E VOLTAR AO INÃCIO</button>
+      <button class="logout-button" id="logoutButton">SAIR E VOLTAR AO IN&Iacute;CIO</button>
     </div>
   </section>
 </div>
+<!-- Mensagens curtas de retorno, como a confirmacao de logout. -->
 <div class="toast" id="toast"></div>
+<!-- Modal compartilhado pelos fluxos de login e cadastro. -->
 <div class="modal-backdrop" id="authBackdrop" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="auth-modal">
     <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
