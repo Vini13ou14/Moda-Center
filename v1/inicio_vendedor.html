@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#5720B7">
+
+    <title>Moda Center Santa Cruz</title>
+
+    <link rel="stylesheet" href="css/inicio_vendedor.css">
+    <link rel="stylesheet" href="css/vendedor-navigation.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <main class="app">
+
+
+        <header class="header">
+
+            <div class="header-top">
+
+                <!-- Logo -->
+                <div class="logo-area">
+
+                    <img 
+                        src="assets/images/logo.png"
+                        alt="Moda Center Santa Cruz"
+                        class="logo"
+                    >
+
+                </div>
+
+                <!-- Notificação -->
+                <button 
+                    class="notification-button"
+                    aria-label="Notificações"
+                >
+
+                    <span class="notification-icon">
+                        ♧
+                    </span>
+
+                    <span class="notification-badge"></span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Saudação -->
+
+            <div class="greeting">
+
+                <h1>Olá, <span id="userName">Usuário</span>! 👋</h1>
+
+                <p>
+                    O que você está procurando hoje?
+                </p>
+
+            </div>
+
+
+            <!-- Barra de pesquisa -->
+
+            <div class="search-container">
+
+                <button 
+                    class="search-button"
+                    aria-label="Pesquisar"
+                >
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                </button>
+
+                <input
+                    type="search"
+                    class="search-input"
+                    placeholder="O que você está procurando?"
+                    aria-label="Pesquisar produtos"
+                >
+
+                <button
+                    class="filter-button"
+                    aria-label="Filtros"
+                >
+
+                    <span>
+                        ☷
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PERFIL DO VENDEDOR
+        ================================================== -->
+
+        <section class="profile-view" id="profileView" aria-labelledby="profileTitle" hidden>
+
+            <div class="profile-hero">
+                <button class="profile-settings" id="profileSettingsButton" type="button" aria-label="Abrir configurações">⚙</button>
+                <div class="profile-avatar" aria-hidden="true"><span id="profileInitials">JS</span></div>
+                <div class="profile-identity">
+                    <p class="profile-eyebrow">Meu perfil</p>
+                    <h1 id="profileTitle"><span id="profileViewName">Jhon Smit</span></h1>
+                    <p class="profile-store">▣ <span>Moda &amp; Estilo</span></p>
+                    <p class="profile-rating"><span>★</span> 4,75 <small>(231 avaliações)</small></p>
+                </div>
+                <button class="profile-camera" type="button" aria-label="Alterar foto">⌾</button>
+            </div>
+
+            <div class="profile-stat-strip" aria-label="Resumo da loja">
+                <div class="profile-stat"><strong>1.290</strong><span>Vendas</span><small>Total realizadas</small></div>
+                <div class="profile-stat"><strong>620</strong><span>Produtos</span><small>Cadastrados</small></div>
+                <div class="profile-stat profile-stat-rating"><strong>4,75 <span>★</span></strong><span>Avaliação média</span><small>231 avaliações</small></div>
+            </div>
+
+            <div class="profile-shortcuts">
+                <h2>Visão geral</h2>
+                <div class="profile-shortcut-grid">
+                    <button class="profile-shortcut shortcut-purple" type="button"><span class="shortcut-icon">◔</span><span><strong>Relatórios</strong><small>Acompanhe suas vendas, produtos e desempenho.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-blue" type="button"><span class="shortcut-icon">▣</span><span><strong>Configuração da loja</strong><small>Gerencie suas informações e preferências.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-green" type="button"><span class="shortcut-icon">★</span><span><strong>Minhas avaliações</strong><small>Veja o que seus clientes dizem sobre você.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-orange" type="button"><span class="shortcut-icon">↗</span><span><strong>Últimas vendas</strong><small>Acompanhe seus pedidos e entregas recentes.</small></span><b>›</b></button>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+        ================================================== -->
+
+        <section class="content">
+
+
+            <!-- =================================================
+                 CATÁLOGOS
+            ================================================== -->
+
+            <section class="section catalog-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Catálogos
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="catalog-list">
+
+
+                    <!-- Masculino -->
+
+                    <article class="catalog-card">
+
+                        <div class="catalog-image">
+
+                            <img
+                                src="assets/images/banner.png"
+                                alt="Roupas masculinas"
+                            >
+
+                        </div>
+
+                        <div class="catalog-info">
+
+                            <h3>
+                                Masculino
+                            </h3>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Feminino -->
+
+                    <article class="catalog-card">
+
+                        <div class="catalog-image">
+
+                            <img
+                                src="assets/images/moda.png"
+                                alt="Roupas femininas"
+                            >
+
+                        </div>
+
+                        <div class="catalog-info">
+
+                            <h3>
+                                Feminino
+                            </h3>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Acessórios -->
+
+                    <article class="catalog-card">
+
+                        <div class="catalog-image">
+
+                            <img
+                                src="assets/images/aerial.jpg"
+                                alt="Acessórios"
+                            >
+
+                        </div>
+
+                        <div class="catalog-info">
+
+                            <h3>
+                                Acessórios
+                            </h3>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Calçados -->
+
+                    <article class="catalog-card">
+
+                        <div class="catalog-image">
+
+                            <img
+                                src="assets/images/banner.png"
+                                alt="Calçados"
+                            >
+
+                        </div>
+
+                        <div class="catalog-info">
+
+                            <h3>
+                                Calçados
+                            </h3>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SEUS PRODUTOS
+            ================================================== -->
+
+            <section class="section products-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Seus produtos
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="products-list">
+
+
+                    <!-- Produto 1 -->
+
+                    <article class="product-card">
+
+                        <button 
+                            class="product-options"
+                            aria-label="Opções do produto"
+                        >
+                            ⋮
+                        </button>
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/images/banner.png"
+                                alt="Blazer Slim Fit"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Blazer Slim Fit
+                            </h3>
+
+                            <p class="product-price">
+                                R$ 129,90
+                            </p>
+
+                            <span class="delivery">
+                                🚚 Entrega segura
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡ Ver produto
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Produto 2 -->
+
+                    <article class="product-card">
+
+                        <button 
+                            class="product-options"
+                            aria-label="Opções do produto"
+                        >
+                            ⋮
+                        </button>
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/images/moda.png"
+                                alt="Blusa Gola Alta"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Blusa Gola Alta
+                            </h3>
+
+                            <p class="product-price">
+                                R$ 99,90
+                            </p>
+
+                            <span class="delivery">
+                                🚚 Entrega segura
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡ Ver produto
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Produto 3 -->
+
+                    <article class="product-card">
+
+                        <button 
+                            class="product-options"
+                            aria-label="Opções do produto"
+                        >
+                            ⋮
+                        </button>
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/images/aerial.jpg"
+                                alt="Colete Alfaiatado"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Colete Alfaiatado
+                            </h3>
+
+                            <p class="product-price">
+                                R$ 89,90
+                            </p>
+
+                            <span class="delivery">
+                                🚚 Entrega segura
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡ Ver produto
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Produto 4 -->
+
+                    <article class="product-card">
+
+                        <button 
+                            class="product-options"
+                            aria-label="Opções do produto"
+                        >
+                            ⋮
+                        </button>
+
+                        <div class="product-image">
+
+                            <img
+                                src="assets/images/banner.png"
+                                alt="Calça Social"
+                            >
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <h3>
+                                Calça Social
+                            </h3>
+
+                            <p class="product-price">
+                                R$ 119,90
+                            </p>
+
+                            <span class="delivery">
+                                🚚 Entrega segura
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡ Ver produto
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DESTAQUES PARA VOCÊ
+            ================================================== -->
+
+            <section class="section highlights-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Destaques para você
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="highlights-list">
+
+
+                    <!-- Novas Coleções -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/banner.png"
+                            alt="Novas Coleções"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Novas
+                                <br>
+                                Coleções
+                            </h3>
+
+                            <p>
+                                Confira as novidades
+                            </p>
+
+                            <button>
+                                Ver agora
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Promoções -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/moda.png"
+                            alt="Promoções Especiais"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Promoções
+                                <br>
+                                Especiais
+                            </h3>
+
+                            <p>
+                                Descontos imperdíveis
+                            </p>
+
+                            <button>
+                                Ver ofertas
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Mais Vendidos -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/aerial.jpg"
+                            alt="Mais Vendidos"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Mais Vendidos
+                            </h3>
+
+                            <p>
+                                Os queridinhos
+                            </p>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LOJAS EM DESTAQUE
+            ================================================== -->
+
+            <section class="section stores-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Lojas em destaque
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="stores-list">
+
+
+                    <!-- Loja 1 -->
+
+                    <article class="store-card">
+
+                        <div class="store-logo">
+
+                            <img
+                                src="assets/images/logo.png"
+                                alt="Estilo Moda"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Estilo Moda
+                        </h3>
+
+                        <span>
+                            Moda feminina
+                        </span>
+
+                        <button>
+                            Ver loja
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- Loja 2 -->
+
+                    <article class="store-card">
+
+                        <div class="store-logo">
+
+                            <img
+                                src="assets/images/moda.png"
+                                alt="Chic & Cia"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Chic & Cia
+                        </h3>
+
+                        <span>
+                            Moda feminina
+                        </span>
+
+                        <button>
+                            Ver loja
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- Loja 3 -->
+
+                    <article class="store-card">
+
+                        <div class="store-logo">
+
+                            <img
+                                src="assets/images/banner.png"
+                                alt="Trend Look"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Trend Look
+                        </h3>
+
+                        <span>
+                            Moda masculina
+                        </span>
+
+                        <button>
+                            Ver loja
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- Loja 4 -->
+
+                    <article class="store-card">
+
+                        <div class="store-logo">
+
+                            <img
+                                src="assets/images/aerial.jpg"
+                                alt="Bella Store"
+                            >
+
+                        </div>
+
+                        <h3>
+                            Bella Store
+                        </h3>
+
+                        <span>
+                            Moda feminina
+                        </span>
+
+                        <button>
+                            Ver loja
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+        </section>
+
+        <div class="settings-backdrop" id="settingsBackdrop" aria-hidden="true">
+            <section class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+                <div class="settings-heading">
+                    <div>
+                        <p>Minha conta</p>
+                        <h2 id="settingsTitle">Configurações</h2>
+                    </div>
+                    <button class="settings-close" id="settingsClose" type="button" aria-label="Fechar configurações">×</button>
+                </div>
+                <div class="settings-account">
+                    <span class="settings-avatar" id="settingsInitials">JS</span>
+                    <span><strong id="settingsName">Jhon Smit</strong><small id="settingsEmail">Perfil de vendedor</small></span>
+                </div>
+                <div class="settings-options">
+                    <button type="button"><span>✎</span><span><strong>Editar perfil</strong><small>Atualize seus dados e sua loja</small></span><b>›</b></button>
+                    <button type="button"><span>🔔</span><span><strong>Notificações</strong><small>Controle os avisos da sua conta</small></span><b>›</b></button>
+                    <button type="button"><span>🔒</span><span><strong>Privacidade e segurança</strong><small>Gerencie senha e acesso</small></span><b>›</b></button>
+                </div>
+                <button class="settings-logout" id="settingsLogout" type="button"><span>↪</span> Sair da conta</button>
+            </section>
+        </div>
+
+
+        <!-- =====================================================
+             BOTÃO FLUTUANTE
+        ====================================================== -->
+
+        <button
+            class="floating-button"
+            aria-label="Adicionar"
+        >
+
+            <span>
+                +
+            </span>
+
+        </button>
+
+
+
+        <!-- =====================================================
+             MENU INFERIOR
+        ====================================================== -->
+
+        <!-- Menu inferior padronizado a partir da tela de perfil. -->
+        <nav class="bottom-navigation">
+            <button class="nav-item active" data-page="inicio_vendedor.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </button>
+            <button class="nav-item" data-page="chat_vendedor.html">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </button>
+            <div class="navigation-space"></div>
+            <button class="nav-item" data-page="marketing_vendedor.html">
+                <span class="nav-icon">📣</span>
+                <span class="nav-label">Marketing</span>
+            </button>
+            <button class="nav-item" data-page="perfil_vendedor.html">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </button>
+        </nav>
+
+        <!-- Menu de perfil; o JS controla sua abertura e o Logout. -->
+        <div class="profile-menu" id="profileMenu" aria-hidden="true">
+            <strong id="profileName">Perfil</strong>
+            <button class="profile-logout" type="button">Logout</button>
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- Mensagens curtas de retorno (ex.: "recurso em desenvolvimento"). -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/inicio_vendedor.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5720B7">
+    <title>Perfil do Vendedor - Moda Center</title>
+    <link rel="stylesheet" href="css/perfil_vendedor.css">
+    <link rel="stylesheet" href="css/vendedor-navigation.css">
+</head>
+<body>
+    <main class="app">
+        <section class="profile-view" id="profileView" aria-labelledby="profileTitle">
+            <div class="profile-hero">
+                <button class="profile-settings" id="profileSettingsButton" type="button" aria-label="Abrir configurações">⚙</button>
+                <div class="profile-avatar" aria-hidden="true"><span id="profileInitials">JS</span></div>
+                <div class="profile-identity">
+                    <p class="profile-eyebrow">Meu perfil</p>
+                    <h1 id="profileTitle"><span id="profileViewName">Jhon Smit</span></h1>
+                    <p class="profile-store">▣ <span>Moda &amp; Estilo</span></p>
+                    <p class="profile-rating"><span>★</span> 4,75 <small>(231 avaliações)</small></p>
+                </div>
+                <button class="profile-camera" type="button" aria-label="Alterar foto">⌾</button>
+            </div>
+
+            <div class="profile-stat-strip" aria-label="Resumo da loja">
+                <div class="profile-stat"><strong>1.290</strong><span>Vendas</span><small>Total realizadas</small></div>
+                <div class="profile-stat"><strong>620</strong><span>Produtos</span><small>Cadastrados</small></div>
+                <div class="profile-stat profile-stat-rating"><strong>4,75 <span>★</span></strong><span>Avaliação média</span><small>231 avaliações</small></div>
+            </div>
+
+            <div class="profile-shortcuts">
+                <div class="profile-shortcut-grid">
+                    <button class="profile-shortcut shortcut-purple" type="button"><span class="shortcut-icon">◔</span><span><strong>Relatórios</strong><small>Acompanhe suas vendas, produtos e desempenho.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-blue" type="button"><span class="shortcut-icon">▣</span><span><strong>Configuração da loja</strong><small>Gerencie suas informações e preferências.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-green" type="button"><span class="shortcut-icon">★</span><span><strong>Minhas avaliações</strong><small>Veja o que seus clientes dizem sobre você.</small></span><b>›</b></button>
+                    <button class="profile-shortcut shortcut-orange" type="button"><span class="shortcut-icon">↗</span><span><strong>Últimas vendas</strong><small>Acompanhe seus pedidos e entregas recentes.</small></span><b>›</b></button>
+                </div>
+            </div>
+        </section>
+
+        <div class="settings-backdrop" id="settingsBackdrop" aria-hidden="true">
+            <section class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+                <div class="settings-heading">
+                    <div><p>Minha conta</p><h2 id="settingsTitle">Configurações</h2></div>
+                    <button class="settings-close" id="settingsClose" type="button" aria-label="Fechar configurações">×</button>
+                </div>
+                <div class="settings-account">
+                    <span class="settings-avatar" id="settingsInitials">JS</span>
+                    <span><strong id="settingsName">Jhon Smit</strong><small>Perfil de vendedor</small></span>
+                </div>
+                <div class="settings-options">
+                    <button type="button"><span>✎</span><span><strong>Editar perfil</strong><small>Atualize seus dados e sua loja</small></span><b>›</b></button>
+                    <button type="button"><span>🔔</span><span><strong>Notificações</strong><small>Controle os avisos da sua conta</small></span><b>›</b></button>
+                    <button type="button"><span>🔒</span><span><strong>Privacidade e segurança</strong><small>Gerencie senha e acesso</small></span><b>›</b></button>
+                </div>
+                <button class="settings-logout" id="settingsLogout" type="button"><span>↪</span> Sair da conta</button>
+            </section>
+        </div>
+
+        <button class="floating-button" aria-label="Adicionar"><span>+</span></button>
+
+        <!-- Menu inferior compartilhado; somente o item Perfil fica ativo nesta tela. -->
+        <nav class="bottom-navigation">
+            <button class="nav-item" data-page="inicio_vendedor.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </button>
+            <button class="nav-item" data-page="chat_vendedor.html">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </button>
+            <div class="navigation-space"></div>
+            <button class="nav-item" data-page="marketing_vendedor.html">
+                <span class="nav-icon">📣</span>
+                <span class="nav-label">Marketing</span>
+            </button>
+            <button class="nav-item active" data-page="perfil_vendedor.html">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </button>
+        </nav>
+    </main>
+    <script src="js/perfil_vendedor.js"></script>
+</body>
+</html>

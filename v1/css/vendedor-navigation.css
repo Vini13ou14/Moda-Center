@@ -1,0 +1,125 @@
+/* Base comum: todas as telas ocupam a mesma area responsiva do marketing. */
+html,
+body {
+    max-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: var(--background, #f7f5fb);
+    overflow-y: scroll;
+}
+
+.app,
+.chat-app {
+    width: calc(100% - 2px);
+    max-width: none;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: max(94px, calc(82px + env(safe-area-inset-bottom)));
+}
+
+/* Menu inferior comum: o perfil define a estrutura e o marketing define os breakpoints. */
+.floating-button {
+    position: fixed;
+    z-index: 21;
+    right: max(24px, calc((100vw - 1180px) / 2));
+    bottom: 62px;
+    width: 56px;
+    height: 56px;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--orange, #ff7a18);
+    box-shadow: 0 10px 22px rgba(255, 122, 24, .35);
+    font-size: 28px;
+}
+
+.bottom-navigation {
+    position: fixed;
+    z-index: 20;
+    right: 1px;
+    bottom: 0;
+    left: 1px;
+    width: auto;
+    max-width: none;
+    transform: none;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 18px;
+    height: 76px;
+    padding: 10px 24px;
+    background: #fff;
+    border-top: 1px solid var(--line, #ebe7f3);
+    box-shadow: 0 -8px 28px rgba(43, 26, 87, .08);
+}
+
+.nav-item {
+    min-width: 76px;
+    border: 0;
+    color: var(--muted, #7e7890);
+    background: transparent;
+}
+
+.nav-item.active,
+.nav-item:hover {
+    color: var(--purple, #5926c9);
+}
+
+.nav-item:focus-visible {
+    color: var(--purple, #5926c9);
+}
+
+.nav-icon,
+.nav-label {
+    display: block;
+}
+
+.nav-icon {
+    margin-bottom: 4px;
+    font-size: 19px;
+}
+
+.nav-label {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.navigation-space {
+    width: 46px;
+}
+
+/* Em telas compactas, preserva a distribuicao usada no marketing. */
+@media (max-width: 520px) {
+    .bottom-navigation {
+        gap: 2px;
+        justify-content: space-around;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .nav-item {
+        min-width: 54px;
+    }
+
+    .navigation-space {
+        width: 16px;
+    }
+}
+
+/* A bolinha muda de cor e fica centralizada no mesmo ponto em telas menores. */
+@media (max-width: 750px) {
+    .floating-button {
+        right: calc(50% - 28px);
+        bottom: calc(58px + env(safe-area-inset-bottom));
+        border: 3px solid #fff;
+        background: var(--purple, #5926c9);
+        box-shadow: 0 2px 9px rgba(73, 33, 155, .35);
+    }
+}

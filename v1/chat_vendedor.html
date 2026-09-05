@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#5520b8"
+    >
+
+    <title>Chats - Moda Center</title>
+
+    <link
+        rel="stylesheet"
+        href="css/chat_vendedor.css"
+    >
+    <link rel="stylesheet" href="css/vendedor-navigation.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         APLICATIVO
+    ====================================================== -->
+
+    <main class="chat-app">
+
+
+        <!-- =================================================
+             CABEÇALHO
+        ================================================== -->
+
+        <header class="chat-header">
+
+            <div class="header-top">
+
+
+                <!-- LOGO -->
+
+                <img
+                    src="assets/images/logo.png"
+                    alt="Moda Center"
+                    class="chat-logo"
+                >
+
+
+                <!-- BOTÃO NOVA MENSAGEM -->
+
+                <button
+                    class="new-chat-button"
+                    id="newChatButton"
+                    aria-label="Nova conversa"
+                >
+
+                    💬
+
+                </button>
+
+            </div>
+
+
+            <div class="chat-title-area">
+
+                <h1>
+                    Chats
+                    <span class="title-arrow">⌄</span>
+                </h1>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PESQUISA
+        ================================================== -->
+
+        <section class="search-section">
+
+            <div class="chat-search">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="chatSearch"
+                    placeholder="Pesquise algo ou alguém..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                class="filter-button"
+                id="filterButton"
+                aria-label="Filtrar conversas"
+            >
+
+                ☷
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LISTA DE CONVERSAS
+        ================================================== -->
+
+        <section class="conversations-section">
+
+            <div
+                class="conversations-list"
+                id="conversationsList"
+            >
+
+                <!--
+                    As conversas serão carregadas
+                    automaticamente pelo JavaScript.
+                -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATENDIMENTO RÁPIDO
+        ================================================== -->
+
+        <section class="quick-help">
+
+            <div class="quick-help-icon">
+
+                💬
+
+            </div>
+
+
+            <div class="quick-help-content">
+
+                <h2>
+                    Atendimento rápido e fácil
+                </h2>
+
+                <p>
+                    Fale com vendedores, tire dúvidas e
+                    feche suas compras com praticidade!
+                </p>
+
+            </div>
+
+
+            <div class="quick-help-image">
+
+                🎧
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MENU INFERIOR
+        ================================================== -->
+
+        <button
+            class="floating-button"
+            id="bottomAdd"
+            aria-label="Adicionar"
+        >
+
+            <span>
+                +
+            </span>
+
+        </button>
+
+
+        <!-- Menu inferior padronizado a partir da tela de perfil. -->
+        <nav class="bottom-navigation">
+            <button class="nav-item" data-page="inicio_vendedor.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </button>
+            <button class="nav-item active" data-page="chat_vendedor.html">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </button>
+            <div class="navigation-space"></div>
+            <button class="nav-item" data-page="marketing_vendedor.html">
+                <span class="nav-icon">📣</span>
+                <span class="nav-label">Marketing</span>
+            </button>
+            <button class="nav-item" data-page="perfil_vendedor.html">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </button>
+        </nav>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL NOVA CONVERSA
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="newChatModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="closeNewChat"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Nova conversa
+            </h2>
+
+            <p>
+                Escolha um vendedor para iniciar uma conversa.
+            </p>
+
+
+            <div class="seller-list">
+
+
+                <button
+                    class="seller-option"
+                    data-seller="Moda Bella"
+                    data-id="seller-bella"
+                >
+
+                    <div class="seller-avatar">
+                        👩🏻
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Moda Bella
+                        </strong>
+
+                        <span>
+                            Vendedora • Online
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+
+                <button
+                    class="seller-option"
+                    data-seller="Trend Fashion"
+                    data-id="seller-trend"
+                >
+
+                    <div class="seller-avatar">
+                        👨🏻
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Trend Fashion
+                        </strong>
+
+                        <span>
+                            Vendedor • Online
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+
+                <button
+                    class="seller-option"
+                    data-seller="Bella Store"
+                    data-id="seller-bella-store"
+                >
+
+                    <div class="seller-avatar">
+                        👩🏽
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Bella Store
+                        </strong>
+
+                        <span>
+                            Vendedora • Online
+                        </span>
+
+                    </div>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TELA DA CONVERSA
+    ====================================================== -->
+
+    <section
+        class="conversation-page"
+        id="conversationPage"
+    >
+
+
+        <!-- CABEÇALHO DA CONVERSA -->
+
+        <header class="conversation-header">
+
+            <button
+                class="back-button"
+                id="backToChats"
+            >
+
+                ‹
+
+            </button>
+
+
+            <div class="conversation-user">
+
+                <div
+                    class="conversation-avatar"
+                    id="conversationAvatar"
+                >
+                    👩🏻
+                </div>
+
+
+                <div>
+
+                    <h2 id="conversationName">
+                        Vendedor
+                    </h2>
+
+                    <span id="conversationStatus">
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="conversation-options"
+                aria-label="Opções"
+            >
+
+                ⋮
+
+            </button>
+
+        </header>
+
+
+
+        <!-- MENSAGENS -->
+
+        <div
+            class="messages-container"
+            id="messagesContainer"
+        >
+
+            <!-- mensagens carregadas pelo JS -->
+
+        </div>
+
+
+
+        <!-- DIGITANDO -->
+
+        <div
+            class="typing-indicator"
+            id="typingIndicator"
+        >
+
+            Vendedor está digitando...
+
+        </div>
+
+
+
+        <!-- CAMPO DE MENSAGEM -->
+
+        <form
+            class="message-form"
+            id="messageForm"
+        >
+
+            <button
+                type="button"
+                class="attachment-button"
+                id="attachmentButton"
+                aria-label="Anexar"
+            >
+
+                +
+
+            </button>
+
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Digite uma mensagem..."
+                autocomplete="off"
+                maxlength="500"
+            >
+
+
+            <button
+                type="submit"
+                class="send-button"
+                aria-label="Enviar mensagem"
+            >
+
+                ➤
+
+            </button>
+
+        </form>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/chat_vendedor.js"></script>
+
+</body>
+
+</html>
