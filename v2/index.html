@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#5520b8">
+<title>Moda Center Santa Cruz</title>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+<!-- Container principal da página inicial e do modal de autenticação. -->
+<div class="app">
+  <!-- Area de destaque com a marca, a chamada principal e a imagem do local. -->
+  <section class="hero">
+    <div class="orange-shape"></div>
+    <div class="content">
+      <img class="logo" src="assets/images/logo.png" alt="Moda Center">
+      <h1>MODA<br>CENTER</h1>
+      <div class="city">SANTA CRUZ</div>
+      <div class="divider"></div>
+      <div class="subtitle">O MAIOR CENTRO DE MODA<br>DA <b>AM&Eacute;RICA LATINA</b></div>
+    </div>
+    <div class="photo"></div>
+    <div class="white-curve"></div>
+  </section>
+
+  <!-- Menu inferior e atalhos de autenticacao. -->
+  <section class="bottom">
+    <nav class="nav" aria-label="Menu principal">
+      <div class="nav-item"><img class="nav-icon-image" src="assets/images/sacola.png" alt=""><span>COMPRE<br>COM FACILIDADE</span></div>
+      <div class="nav-item"><img class="nav-icon-image" src="assets/images/localizacao.png" alt=""><span>ENCONTRE<br>LOJAS</span></div>
+      <div class="nav-item"><img class="nav-icon-image" src="assets/images/ofertas.png" alt=""><span>OFERTAS<br>EXCLUSIVAS</span></div>
+      <div class="nav-item"><img class="nav-icon-image" src="assets/images/eventos.png" alt=""><span>EVENTOS<br>E NOVIDADES</span></div>
+      <div class="nav-item"><div class="icon">&#9825;</div><span>FAVORITOS<br>E MUITO MAIS</span></div>
+    </nav>
+
+    <div class="actions">
+      <button class="primary" data-auth="login">ENTRAR</button>
+      <button data-auth="register">CADASTRAR</button>
+    </div>
+  </section>
+</div>
+<!-- Mensagens curtas de retorno, como a confirmacao de logout. -->
+<div class="toast" id="toast"></div>
+<!-- Modal compartilhado pelos fluxos de login e cadastro. -->
+<div class="modal-backdrop" id="authBackdrop" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="auth-modal">
+    <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
+    <img class="auth-logo" src="assets/images/logo.png" alt="">
+    <h2 id="authTitle">Acesse sua conta</h2>
+    <p id="authDescription">Entre para acompanhar suas lojas e favoritos.</p>
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" data-tab="login" role="tab">ENTRAR</button>
+      <button class="auth-tab" data-tab="register" role="tab">CADASTRAR</button>
+    </div>
+    <form class="auth-form active" id="loginForm">
+      <label class="field">USUÁRIO OU E-MAIL<input type="text" name="email" autocomplete="username" required></label>
+      <label class="field">SENHA<input type="password" name="password" autocomplete="current-password" required minlength="6"></label>
+      <button class="auth-submit" type="submit">ENTRAR NA MINHA CONTA</button>
+      <p class="auth-note" id="loginNote"></p>
+    </form>
+    <form class="auth-form" id="registerForm">
+      <label class="field">NOME<input type="text" name="name" autocomplete="name" required minlength="2"></label>
+      <label class="field">E-MAIL<input type="email" name="email" autocomplete="email" required></label>
+      <label class="field">SENHA<input type="password" name="password" autocomplete="new-password" required minlength="6"></label>
+      <fieldset class="profile-field">
+        <legend>EU SOU</legend>
+        <div class="profile-options">
+          <label class="profile-option"><input type="radio" name="profile" value="cliente" required><span>CLIENTE</span></label>
+          <label class="profile-option"><input type="radio" name="profile" value="comerciante"><span>COMERCIANTE</span></label>
+        </div>
+      </fieldset>
+      <button class="auth-submit" type="submit">CRIAR MINHA CONTA</button>
+      <p class="auth-note" id="registerNote"></p>
+    </form>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

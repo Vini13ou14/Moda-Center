@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#5720B7">
+
+    <title>Moda Center Santa Cruz</title>
+
+    <link rel="stylesheet" href="css/inicio_comerciante.css">
+    <link rel="stylesheet" href="css/comerciante-navigation.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <main class="app">
+
+
+        <header class="header">
+
+            <div class="header-top">
+
+                <!-- Logo -->
+                <div class="logo-area">
+
+                    <img 
+                        src="assets/images/logo.png"
+                        alt="Moda Center Santa Cruz"
+                        class="logo"
+                    >
+
+                </div>
+
+                <!-- Notificação -->
+                <button 
+                    class="notification-button"
+                    aria-label="Notificações"
+                >
+
+                    <img
+                        src="assets/images/notificacao.png"
+                        alt=""
+                        class="notification-icon"
+                    >
+
+                </button>
+
+            </div>
+
+
+            <!-- Saudação -->
+
+            <div class="greeting">
+
+                <h1>Olá, <span id="userName">Usuário</span>! 👋</h1>
+
+                <p>
+                    O que você está procurando hoje?
+                </p>
+
+            </div>
+
+
+            <!-- Barra de pesquisa -->
+
+            <div class="search-container">
+
+                <button 
+                    class="search-button"
+                    aria-label="Pesquisar"
+                >
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                </button>
+
+                <input
+                    type="search"
+                    class="search-input"
+                    placeholder="O que você está procurando?"
+                    aria-label="Pesquisar produtos"
+                >
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+
+             Observação: esta página já teve, aqui embaixo, uma
+             seção inteira de "Perfil do comerciante" (avatar,
+             estatísticas, atalhos) e um modal de "Configurações"
+             duplicados. Isso é código de uma fase anterior do
+             projeto, de quando o Perfil era só uma view que
+             aparecia/desaparecia dentro desta mesma página — hoje
+             o Perfil já é uma página própria (perfil_comerciante.html,
+             acessada pelo item "Perfil" do menu inferior), então
+             aquele bloco nunca mais era mostrado e foi removido.
+        ================================================== -->
+
+        <section class="content">
+
+
+            <!-- =================================================
+                 FILTRO
+            ================================================== -->
+
+            <section class="section filter-section">
+                <div class="section-header">
+                    <h2>Filtro</h2>
+                    <a class="see-all filter-link" href="filtro_comerciante.html">Abrir filtro <span>›</span></a>
+                </div>
+
+                <a class="filter-entry" href="filtro_comerciante.html">
+                    <span class="filter-entry-icon" aria-hidden="true">☷</span>
+                    <span>
+                        <strong>Encontre seus produtos</strong>
+                        <small>Filtre por segmento, categoria ou nome.</small>
+                    </span>
+                    <span class="filter-entry-arrow" aria-hidden="true">›</span>
+                </a>
+            </section>
+
+
+
+            <!-- =================================================
+                 SEUS PRODUTOS
+            ================================================== -->
+
+            <section class="section products-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Seus produtos
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                 <!-- Preenchido dinamicamente por js/inicio_comerciante.js com os
+                     produtos que o próprio comerciante cadastrou. Enquanto não
+                     houver produtos, mostra um convite para cadastrar o
+                     primeiro (ver a função que usa "productsList" no script). -->
+                <div class="products-list" id="productsList"></div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DESTAQUES PARA VOCÊ
+            ================================================== -->
+
+            <section class="section highlights-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Destaques para você
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="highlights-list">
+
+
+                    <!-- Novas Coleções -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/banner.png"
+                            alt="Novas Coleções"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Novas
+                                <br>
+                                Coleções
+                            </h3>
+
+                            <p>
+                                Confira as novidades
+                            </p>
+
+                            <button>
+                                Ver agora
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Promoções -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/moda.png"
+                            alt="Promoções Especiais"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Promoções
+                                <br>
+                                Especiais
+                            </h3>
+
+                            <p>
+                                Descontos imperdíveis
+                            </p>
+
+                            <button>
+                                Ver ofertas
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Mais Vendidos -->
+
+                    <article class="highlight-card">
+
+                        <img
+                            src="assets/images/aerial.jpg"
+                            alt="Mais Vendidos"
+                        >
+
+                        <div class="highlight-overlay">
+
+                            <h3>
+                                Mais Vendidos
+                            </h3>
+
+                            <p>
+                                Os queridinhos
+                            </p>
+
+                            <button>
+                                Ver produtos
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LOJAS EM DESTAQUE
+            ================================================== -->
+
+            <section class="section stores-section">
+
+                <div class="section-header">
+
+                    <h2>
+                        Lojas em destaque
+                    </h2>
+
+                    <button class="see-all">
+                        Ver todos
+                        <span>›</span>
+                    </button>
+
+                </div>
+
+
+                <div class="stores-list" id="storesList"></div>
+
+            </section>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             BOTÃO FLUTUANTE
+        ====================================================== -->
+
+        <button
+            class="floating-button"
+            aria-label="Adicionar"
+        >
+
+            <span>
+                +
+            </span>
+
+        </button>
+
+
+
+        <!-- =====================================================
+             MENU INFERIOR
+        ====================================================== -->
+
+        <!-- Menu inferior padronizado a partir da tela de perfil. -->
+        <nav class="bottom-navigation">
+            <button class="nav-item active" data-page="inicio_comerciante.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </button>
+            <button class="nav-item" data-page="chat_comerciante.html">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </button>
+            <div class="navigation-space"></div>
+            <button class="nav-item" data-page="marketing_comerciante.html">
+                <span class="nav-icon">📣</span>
+                <span class="nav-label">Marketing</span>
+            </button>
+            <button class="nav-item" data-page="perfil_comerciante.html">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </button>
+        </nav>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- Mensagens curtas de retorno (ex.: "recurso em desenvolvimento"). -->
+    <div class="toast" id="toast"></div>
+
+    <div class="store-modal-backdrop" id="storeModal" hidden>
+        <section class="store-modal" role="dialog" aria-modal="true" aria-labelledby="storeModalTitle">
+            <button class="store-modal-close" id="closeStoreModal" type="button" aria-label="Fechar">&times;</button>
+            <div id="storeModalContent"></div>
+        </section>
+    </div>
+
+    <script src="js/comerciante-guard.js"></script>
+    <script src="js/inicio_comerciante.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5720B7">
+    <title>Central de Marketing - Moda Center</title>
+    <link rel="stylesheet" href="css/marketing_comerciante.css">
+    <link rel="stylesheet" href="css/comerciante-navigation.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         APP
+         Tela "Central de Marketing", acessada pelo item
+         "Marketing" do menu inferior das telas do comerciante.
+         Reaproveita o mesmo cabeçalho roxo e o
+         mesmo menu inferior das outras telas do comerciante.
+    ====================================================== -->
+
+    <main class="app">
+
+        <header class="header">
+
+            <div class="header-top">
+
+                <!-- Logo -->
+                <div class="logo-area">
+                    <img
+                        src="assets/images/logo.png"
+                        alt="Moda Center Santa Cruz"
+                        class="logo"
+                    >
+                </div>
+
+                <!-- Notificação -->
+                <button
+                    class="notification-button"
+                    aria-label="Notificações"
+                >
+                    <img src="assets/images/notificacao.png" alt="" class="notification-icon">
+                </button>
+
+            </div>
+
+            <!-- Título da tela -->
+            <div class="marketing-hero">
+                <h1>Central de Marketing</h1>
+                <p>Ferramentas para impulsionar suas vendas</p>
+            </div>
+
+        </header>
+
+        <!-- =================================================
+             FERRAMENTAS DE MARKETING
+             Cada botão é uma ferramenta. Nenhuma delas tem uma
+             tela própria implementada ainda: o clique só dá um
+             retorno visual e um aviso de "em desenvolvimento",
+             igual ao padrão já usado em outras partes do site.
+        ================================================== -->
+
+        <section class="content">
+
+            <div class="marketing-grid">
+
+                <button class="marketing-card card-purple" type="button">
+                    <span class="card-icon">🤝</span>
+                    <span>
+                        <strong>Affiliate Marketing Solution</strong>
+                        <small>Encontre afiliados e impulsione suas vendas.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-red" type="button">
+                    <span class="card-icon">▶</span>
+                    <span>
+                        <strong>Moda Center Live e Vídeo</strong>
+                        <small>Transmita ao vivo e conecte-se com seus clientes.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-orange" type="button">
+                    <span class="card-icon">%</span>
+                    <span>
+                        <strong>Promoções</strong>
+                        <small>Crie e gerencie promoções especiais para sua loja.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-green" type="button">
+                    <span class="card-icon">🎫</span>
+                    <span>
+                        <strong>Meus Cupons de Comerciante</strong>
+                        <small>Gerencie cupons e ofertas exclusivas para seus clientes.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-blue" type="button">
+                    <span class="card-icon">⚡</span>
+                    <span>
+                        <strong>Ofertas e Relâmpago da Loja</strong>
+                        <small>Crie ofertas relâmpago e aumente suas vendas.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-orange" type="button">
+                    <span class="card-icon">📣</span>
+                    <span>
+                        <strong>Minha Transmissão por Chat</strong>
+                        <small>Divulgue seus produtos diretamente no chat.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-green" type="button">
+                    <span class="card-icon">🎁</span>
+                    <span>
+                        <strong>Prêmio de Seguidor</strong>
+                        <small>Crie prêmios e sorteios para engajar seus seguidores.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+                <button class="marketing-card card-pink" type="button">
+                    <span class="card-icon">🛍</span>
+                    <span>
+                        <strong>Leve Mais por Menos</strong>
+                        <small>Crie ofertas progressivas e aumente o ticket médio dos pedidos.</small>
+                    </span>
+                    <b>›</b>
+                </button>
+
+            </div>
+
+            <!-- Banner de dicas -->
+            <div class="marketing-banner">
+                <span class="banner-icon" aria-hidden="true">🏪</span>
+                <div class="banner-text">
+                    <strong>Dicas para vender mais</strong>
+                    <small>Acesse conteúdos, tutoriais e estratégias exclusivas para lojistas Moda Center.</small>
+                </div>
+                <button class="banner-button" type="button">Acessar agora</button>
+            </div>
+
+        </section>
+
+        <!-- Mensagens curtas de retorno (ex.: "recurso em desenvolvimento"). -->
+        <div class="toast" id="toast"></div>
+
+        <!-- =====================================================
+             BOTÃO FLUTUANTE
+        ====================================================== -->
+
+        <button class="floating-button" aria-label="Adicionar">
+            <span>+</span>
+        </button>
+
+        <!-- =====================================================
+             MENU INFERIOR
+             Mesma estrutura usada nas telas do comerciante, para
+             manter a navegação consistente
+             entre as três telas.
+        ====================================================== -->
+
+        <!-- Menu inferior compartilhado; somente o item Marketing fica ativo nesta tela. -->
+        <nav class="bottom-navigation">
+
+            <button class="nav-item" data-page="inicio_comerciante.html">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </button>
+
+            <button class="nav-item" data-page="chat_comerciante.html">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">Chat</span>
+            </button>
+
+            <div class="navigation-space"></div>
+
+            <button class="nav-item active" data-page="marketing_comerciante.html">
+                <span class="nav-icon">📣</span>
+                <span class="nav-label">Marketing</span>
+            </button>
+
+            <button class="nav-item" data-page="perfil_comerciante.html">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </button>
+
+        </nav>
+
+    </main>
+
+    <script src="js/comerciante-guard.js"></script>
+    <script src="js/marketing_comerciante.js"></script>
+
+</body>
+
+</html>

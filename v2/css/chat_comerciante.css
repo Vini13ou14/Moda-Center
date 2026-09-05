@@ -1,0 +1,137 @@
+/* =========================================================
+    CHAT DO COMERCIANTE
+   Estilos da lista de conversas, modal de nova conversa e
+   tela de mensagens. O menu inferior fica no CSS compartilhado.
+========================================================= */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f7;
+    color: #242424;
+    min-width: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.chat-app {
+    width: calc(100% - 2px);
+    max-width: none;
+    min-height: 100svh;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-header {
+    height: 132px;
+    background: #5520b8;
+    color: #fff;
+    padding: 12px 22px 0;
+    position: relative;
+}
+
+.chat-header::after { content: ""; position: absolute; bottom: -8px; left: 0; width: 100%; height: 15px; background: #fff; border-radius: 50% 50% 0 0; }
+.header-top { display: flex; align-items: center; justify-content: space-between; }
+.chat-logo { width: 78px; height: auto; object-fit: contain; }
+.new-chat-button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; cursor: pointer; }
+.chat-title-area { margin-top: 5px; }
+.chat-title-area h1 { font-size: 19px; font-weight: 500; }
+.title-arrow { font-size: 18px; margin-left: 3px; }
+
+.search-section { display: flex; gap: 10px; padding: 13px 23px 7px; }
+.chat-search { height: 43px; flex: 1; background: #fafafa; border: 1px solid #eee; border-radius: 10px; display: flex; align-items: center; padding: 0 12px; }
+.search-icon { color: #5520b8; font-size: 22px; margin-right: 8px; }
+.chat-search input { border: 0; outline: 0; background: transparent; width: 100%; font-size: 11px; }
+.filter-button { width: 43px; height: 43px; border: 1px solid #eee; background: #fafafa; border-radius: 10px; color: #5520b8; font-size: 20px; }
+
+.conversations-section { padding: 2px 23px 0; }
+.conversations-list { display: flex; flex-direction: column; gap: 7px; }
+.conversation-card { width: 100%; min-height: 67px; border: 1px solid #eee; background: #fff; border-radius: 11px; display: flex; align-items: center; padding: 8px; cursor: pointer; transition: .2s; }
+.conversation-card:hover { background: #fafafa; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 27px; flex-shrink: 0; background: #eee; }
+.conversation-info { flex: 1; min-width: 0; padding-left: 10px; }
+.conversation-info-top { display: flex; justify-content: space-between; gap: 5px; }
+.conversation-info h3 { font-size: 12px; font-weight: 700; }
+.conversation-time { font-size: 8px; color: #777; }
+.last-message { font-size: 9px; color: #777; margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.status { font-size: 8px; margin-top: 4px; display: block; }
+.status.online { color: #20a83a; }
+.status.offline { color: #777; }
+.status.away { color: #e87800; }
+.unread { min-width: 19px; height: 19px; border-radius: 50%; background: #5520b8; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; }
+
+.quick-help { margin: 12px 23px 80px; min-height: 73px; border-radius: 11px; background: #f5efff; display: flex; align-items: center; padding: 9px; position: relative; overflow: hidden; }
+.quick-help-icon { width: 37px; height: 37px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-right: 8px; }
+.quick-help-content { flex: 1; }
+.quick-help-content h2 { font-size: 9px; color: #5520b8; margin-bottom: 4px; }
+.quick-help-content p { font-size: 7px; color: #777; line-height: 1.4; }
+.quick-help-image { font-size: 35px; }
+
+/* Modal para iniciar uma conversa com um comerciante. */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: none; align-items: flex-end; justify-content: center; z-index: 100; }
+.modal.open { display: flex; }
+.modal-content { width: min(100%, 500px); background: #fff; border-radius: 22px 22px 0 0; padding: 25px 22px 30px; }
+.modal-content h2 { font-size: 20px; color: #5520b8; }
+.modal-content p { color: #777; font-size: 12px; margin: 7px 0 20px; }
+.modal-close { float: right; border: 0; background: none; font-size: 25px; cursor: pointer; }
+.seller-list { display: flex; flex-direction: column; gap: 9px; }
+.seller-option { width: 100%; border: 1px solid #eee; background: #fff; border-radius: 12px; display: flex; align-items: center; padding: 10px; text-align: left; cursor: pointer; }
+.seller-avatar { width: 45px; height: 45px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 25px; margin-right: 10px; }
+.seller-option strong { display: block; font-size: 12px; }
+.seller-option span { display: block; font-size: 9px; color: #20a83a; margin-top: 4px; }
+
+/* Conversa aberta sobre a lista principal. */
+.conversation-page { position: fixed; top: 0; bottom: 0; left: 1px; width: calc(100% - 2px); transform: none; background: #f7f7f9; z-index: 200; display: none; flex-direction: column; }
+.conversation-page.open { display: flex; }
+.conversation-header { height: 73px; background: #5520b8; color: #fff; display: flex; align-items: center; padding: 10px 15px; }
+.back-button { width: 35px; height: 35px; border: 0; background: transparent; color: #fff; font-size: 30px; cursor: pointer; }
+.conversation-user { display: flex; align-items: center; flex: 1; }
+.conversation-avatar { width: 42px; height: 42px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-right: 9px; }
+.conversation-user h2 { font-size: 13px; }
+.conversation-user span { display: block; font-size: 9px; margin-top: 3px; color: #8cff9b; }
+.conversation-options { border: 0; background: transparent; color: #fff; font-size: 22px; }
+.messages-container { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 8px; }
+.message { max-width: min(78%, 360px); padding: 9px 12px; border-radius: 14px; font-size: 11px; line-height: 1.4; position: relative; }
+.message.received { align-self: flex-start; background: #fff; border: 1px solid #eee; border-bottom-left-radius: 4px; }
+.message.sent { align-self: flex-end; background: #5520b8; color: #fff; border-bottom-right-radius: 4px; }
+.message-time { display: block; font-size: 7px; text-align: right; margin-top: 4px; opacity: .65; }
+.typing-indicator { display: none; padding: 0 18px 5px; color: #888; font-size: 8px; }
+.typing-indicator.show { display: block; }
+.message-form { min-height: 60px; background: #fff; border-top: 1px solid #eee; display: flex; align-items: center; gap: 7px; padding: 8px 12px; }
+.message-form input { flex: 1; height: 40px; border: 1px solid #eee; background: #f8f8f8; border-radius: 20px; outline: 0; padding: 0 15px; font-size: 11px; }
+.attachment-button { width: 35px; height: 35px; border-radius: 50%; border: 0; background: #f0ebfa; color: #5520b8; font-size: 20px; }
+.send-button { width: 40px; height: 40px; border-radius: 50%; border: 0; background: #5520b8; color: #fff; font-size: 17px; }
+
+@media (min-width: 768px) {
+    .chat-app, .conversation-page { width: calc(100% - 2px); max-width: none; box-shadow: 0 0 30px rgba(0,0,0,.08); }
+}
+
+@media (max-width: 360px) {
+    .chat-header { padding-right: 16px; padding-left: 16px; }
+    .search-section, .conversations-section { padding-right: 16px; padding-left: 16px; }
+    .quick-help { margin-right: 16px; margin-left: 16px; }
+    .quick-help-image { font-size: 28px; }
+    .message { max-width: 86%; }
+    .message-form { gap: 5px; padding-right: 8px; padding-left: 8px; }
+    .message-form input { min-width: 0; padding-right: 12px; padding-left: 12px; }
+}
+
+@media (max-width: 750px) {
+    body { background: #fff; }
+    .chat-app { width: min(100%, 438px); max-width: none; min-height: 100svh; }
+    .quick-help { margin-bottom: calc(80px + env(safe-area-inset-bottom)); }
+    .conversation-page { width: min(100%, 438px); left: 50%; transform: translateX(-50%); }
+    .message-form { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 380px) {
+    .search-section, .conversations-section { padding-right: 16px; padding-left: 16px; }
+    .quick-help { margin-right: 16px; margin-left: 16px; }
+    .conversation-header { padding-right: 10px; padding-left: 10px; }
+    .messages-container { padding-right: 10px; padding-left: 10px; }
+    .message { max-width: 86%; }
+}
+

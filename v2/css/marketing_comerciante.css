@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* =========================================================
+	CENTRAL DE MARKETING (marketing_comerciante.html)
+   Esta folha de estilo repete de propósito as mesmas variáveis,
+	o mesmo cabeçalho e o mesmo menu inferior das telas do comerciante,
+	para que marketing_comerciante.html funcione sozinha, sem
+   depender de outro arquivo CSS carregado. É o mesmo padrão que
+   o projeto já usa: cada página HTML tem seu próprio CSS completo.
+========================================================= */
+
+:root {
+	--ink: #21183b;
+	--muted: #7e7890;
+	--purple: #5926c9;
+	--purple-dark: #321173;
+	--orange: #ff7a18;
+	--surface: #ffffff;
+	--background: #f7f5fb;
+	--line: #ebe7f3;
+}
+
+/* Reset mínimo, igual ao das outras páginas do comerciante. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { max-width: 100%; overflow-x: hidden; }
+body {
+	margin: 0;
+	min-width: 320px;
+	width: 100%;
+	min-height: 100vh;
+	background: var(--background);
+	color: var(--ink);
+	font-family: "DM Sans", sans-serif;
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+img, svg, button { max-width: 100%; }
+
+.app {
+	width: calc(100% - 2px);
+	max-width: none;
+	margin-right: auto;
+	margin-left: auto;
+	min-height: 100vh;
+	padding-bottom: max(94px, calc(82px + env(safe-area-inset-bottom)));
+}
+
+/* ---------------------------------------------------------
+   CABEÇALHO
+	Igual ao de inicio_comerciante.html (logo + notificação), só
+   trocando a saudação/busca pelo título da tela.
+--------------------------------------------------------- */
+.header {
+	width: 100%;
+	max-width: 100%;
+	padding: 28px max(22px, calc((100vw - 1180px) / 2)) 40px;
+	color: #fff;
+	background: linear-gradient(135deg, #6e2bd4, #321173);
+	border-radius: 0 0 34px 34px;
+	box-shadow: 0 18px 35px rgba(50, 17, 115, .17);
+}
+.header-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo-area { display: flex; align-items: center; min-height: 44px; }
+.logo { width: 116px; max-height: 48px; object-fit: contain; filter: brightness(0) invert(1); }
+.notification-button { position: relative; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; width: 42px; height: 42px; color: #fff; background: rgba(255,255,255,.12); }
+.notification-icon { width: 30px; height: 30px; object-fit: contain; display: block; }
+.notification-badge { position: absolute; top: 8px; right: 9px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+
+.marketing-hero { margin: 34px 0 0; }
+.marketing-hero h1 { margin: 0; font: 700 clamp(24px, 4vw, 32px)/1.2 "Space Grotesk", sans-serif; }
+.marketing-hero p { margin: 8px 0 0; color: #ddd2f3; font-size: 14px; }
+
+/* ---------------------------------------------------------
+   CONTEÚDO E GRADE DE FERRAMENTAS
+   Mesmo padrão visual dos atalhos de "Meu perfil" em
+	tela_comerciante.css (ícone + título + descrição + seta),
+   só que em cards um pouco mais altos.
+--------------------------------------------------------- */
+.content { width: min(1180px, calc(100% - 44px)); margin: 26px auto 0; }
+
+.marketing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.marketing-card {
+	display: grid;
+	grid-template-columns: 58px 1fr 14px;
+	align-items: center;
+	gap: 12px;
+	min-height: 118px;
+	padding: 14px;
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	text-align: left;
+	background: var(--surface);
+	box-shadow: 0 8px 24px rgba(43, 26, 87, .05);
+}
+.card-icon { display: grid; place-items: center; width: 58px; height: 78px; border-radius: 10px; font-size: 26px; }
+.card-purple .card-icon { color: #6028c8; background: #e9ddff; }
+.card-blue   .card-icon { color: #1c82d9; background: #d9f0ff; }
+.card-green  .card-icon { color: #4c9a2a; background: #ddf3cc; }
+.card-orange .card-icon { color: #ef791e; background: #ffead1; }
+.card-red    .card-icon { color: #e0392b; background: #ffe1de; }
+.card-pink   .card-icon { color: #c62a7a; background: #ffdcee; }
+.marketing-card strong, .marketing-card small { display: block; }
+.marketing-card strong { margin-bottom: 6px; color: var(--ink); font-size: 13px; line-height: 1.25; }
+.marketing-card small { color: var(--muted); font-size: 11px; line-height: 1.35; }
+.marketing-card > b { color: var(--purple); font-size: 22px; font-weight: 400; }
+
+/* ---------------------------------------------------------
+   BANNER "DICAS PARA VENDER MAIS"
+--------------------------------------------------------- */
+.marketing-banner {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 22px 0 24px;
+	padding: 18px;
+	border-radius: 18px;
+	color: #fff;
+	background: linear-gradient(135deg, #6e2bd4, #321173);
+	box-shadow: 0 12px 26px rgba(50, 17, 115, .22);
+}
+.banner-icon { flex: 0 0 46px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; font-size: 22px; background: rgba(255,255,255,.16); }
+.banner-text { flex: 1; min-width: 0; }
+.banner-text strong { display: block; margin-bottom: 4px; font-size: 14px; }
+.banner-text small { display: block; color: #ddd2f3; font-size: 11px; line-height: 1.35; }
+.banner-button { flex: 0 0 auto; height: 38px; padding: 0 16px; border: 0; border-radius: 10px; color: var(--purple); background: #fff; font-weight: 700; font-size: 12px; white-space: nowrap; }
+
+/* ---------------------------------------------------------
+   TOAST, BOTÃO FLUTUANTE E MENU INFERIOR
+	Idêntico ao usado em tela_comerciante.css e chat.css, para a
+	navegação parecer a mesma em qualquer tela do comerciante.
+--------------------------------------------------------- */
+.toast { position: fixed; left: 50%; bottom: 100px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 10px 16px; border-radius: 20px; background: var(--ink); color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,.2); font-size: 12px; z-index: 40; transition: .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+	Mesmos pontos de quebra usados nas outras telas do comerciante.
+--------------------------------------------------------- */
+@media (max-width: 850px) {
+	.marketing-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+	.header { padding: 22px 20px 30px; border-radius: 0 0 24px 24px; }
+	.content { width: calc(100% - 32px); margin-top: 20px; }
+	.marketing-banner { flex-wrap: wrap; }
+	.banner-button { width: 100%; }
+}
+
+
+@media (min-width: 751px) and (max-width: 1100px) {
+	.content { width: calc(100% - 48px); }
+}
+
+@media (min-width: 1101px) {
+	.header-top, .marketing-hero { width: min(1180px, calc(100% - 44px)); margin-right: auto; margin-left: auto; }
+}

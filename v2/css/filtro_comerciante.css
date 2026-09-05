@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+    --ink: #21183b;
+    --muted: #7e7890;
+    --purple: #5926c9;
+    --purple-dark: #321173;
+    --orange: #ff7a18;
+    --surface: #ffffff;
+    --background: #f7f5fb;
+    --line: #ebe7f3;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    min-width: 320px;
+    color: var(--ink);
+    background: var(--background);
+    font-family: "DM Sans", sans-serif;
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+.app {
+    min-height: 100vh;
+    padding-bottom: 110px;
+}
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px max(22px, calc((100vw - 1180px) / 2));
+    color: #fff;
+    background: linear-gradient(135deg, #6e2bd4, #321173);
+    border-radius: 0 0 30px 30px;
+}
+.back-button {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    font-size: 30px;
+    line-height: 1;
+}
+.eyebrow { margin: 0 0 4px; color: #ddd2f3; font-size: 10px; font-weight: 800; letter-spacing: 1.2px; }
+h1, h2, p { margin: 0; }
+h1 { font: 700 30px/1.1 "Space Grotesk", sans-serif; }
+.header-spacer { width: 42px; }
+.filter-content { width: min(1180px, calc(100% - 44px)); margin: 28px auto; }
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(43, 26, 87, .05);
+}
+.search-box span { color: var(--purple); font-size: 25px; line-height: 1; }
+.search-box input { width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; }
+.filter-heading { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin: 30px 0 14px; }
+.filter-heading h2 { font: 700 22px "Space Grotesk", sans-serif; }
+.filter-heading p { margin-top: 5px; color: var(--muted); font-size: 13px; }
+.clear-button { border: 0; color: var(--purple); background: transparent; font-size: 12px; font-weight: 800; }
+.segment-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.segment-filter { min-height: 38px; padding: 0 15px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); background: var(--surface); font-size: 12px; font-weight: 700; }
+.segment-filter.active, .segment-filter:hover { border-color: var(--purple); color: #fff; background: var(--purple); }
+.products-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.product-card { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 8px 24px rgba(43, 26, 87, .05); }
+.product-image { height: 180px; background: #eee9f8; }
+.product-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.product-info { padding: 14px; }
+.product-info h3 { margin: 0 0 7px; font-size: 15px; }
+.product-category { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
+.product-price { margin: 0 0 8px; color: var(--purple); font-size: 17px; font-weight: 800; }
+.product-old-price { margin: 0 0 2px; color: var(--muted); font-size: 11px; text-decoration: line-through; }
+.product-stock { margin: -3px 0 8px; color: var(--muted); font-size: 11px; }
+.product-segments { display: flex; flex-wrap: wrap; gap: 5px; }
+.product-segments span { padding: 4px 7px; border-radius: 8px; color: var(--purple-dark); background: #f0eafa; font-size: 10px; font-weight: 700; }
+.view-product-button { width: 100%; min-height: 34px; margin-top: 12px; border: 1px solid var(--purple); border-radius: 9px; color: var(--purple); background: transparent; font-size: 11px; font-weight: 800; }
+.products-empty { grid-column: 1 / -1; padding: 38px 22px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 16px; }
+.products-empty p { margin-bottom: 16px; font-size: 14px; }
+.primary-button { display: inline-flex; align-items: center; min-height: 42px; padding: 0 18px; color: #fff; text-decoration: none; border-radius: 10px; background: var(--orange); font-size: 12px; font-weight: 800; }
+.product-options { position: absolute; z-index: 1; top: 10px; right: 10px; width: 30px; height: 30px; border: 0; border-radius: 50%; color: var(--ink); background: rgba(255,255,255,.85); }
+.is-hidden { display: none !important; }
+.edit-modal-backdrop { position: fixed; z-index: 30; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(33, 24, 59, .55); }
+.edit-modal-backdrop[hidden] { display: none; }
+.edit-modal { width: min(100%, 470px); max-height: calc(100vh - 40px); overflow-y: auto; padding: 22px; border-radius: 18px; background: var(--surface); box-shadow: 0 18px 50px rgba(33, 24, 59, .25); }
+.edit-modal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.edit-modal-header .eyebrow { color: var(--purple); }
+.edit-modal h2 { font: 700 22px "Space Grotesk", sans-serif; }
+.modal-close { width: 34px; height: 34px; border: 0; border-radius: 50%; color: var(--muted); background: #f0eafa; font-size: 24px; line-height: 1; }
+.edit-field { display: grid; gap: 7px; margin-bottom: 14px; color: var(--ink); font-size: 12px; font-weight: 700; }
+.edit-field input { width: 100%; min-height: 42px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; outline-color: var(--purple); color: var(--ink); background: #fff; }
+.edit-image-preview { width: 100%; max-height: 180px; margin: 4px 0 14px; border-radius: 12px; object-fit: cover; }
+.edit-final-price { margin: 4px 0 8px; color: var(--purple); font-size: 15px; font-weight: 800; }
+.edit-note { min-height: 18px; margin-bottom: 8px; color: #bb3b42; font-size: 12px; }
+.save-edit { width: 100%; min-height: 44px; border: 0; border-radius: 10px; color: #fff; background: var(--orange); font-size: 13px; font-weight: 800; }
+.details-modal-backdrop { position: fixed; z-index: 31; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(33, 24, 59, .55); }
+.details-modal-backdrop[hidden] { display: none; }
+.details-modal { position: relative; width: min(100%, 470px); max-height: calc(100vh - 40px); overflow-y: auto; padding: 24px; border-radius: 18px; background: var(--surface); box-shadow: 0 18px 50px rgba(33, 24, 59, .25); }
+.details-close { position: absolute; top: 18px; right: 18px; }
+.details-eyebrow { color: var(--purple); }
+.details-modal h2 { margin: 4px 44px 18px 0; font: 700 24px "Space Grotesk", sans-serif; }
+.details-image { display: block; width: 100%; height: 220px; margin-bottom: 20px; border-radius: 14px; object-fit: cover; background: #eee9f8; }
+.details-list { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line); }
+.details-list div { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.details-list dt { color: var(--muted); font-size: 12px; }
+.details-list dd { margin: 0; text-align: right; font-size: 12px; font-weight: 700; }
+.details-highlight { color: var(--purple); font-size: 15px !important; }
+
+@media (max-width: 520px) {
+    .page-header { padding: 22px 20px; border-radius: 0 0 24px 24px; }
+    .filter-content { width: calc(100% - 32px); margin-top: 22px; }
+    h1 { font-size: 25px; }
+    .filter-heading h2 { font-size: 18px; }
+    .products-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .product-image { height: 132px; }
+    .product-info { padding: 10px; }
+    .product-info h3 { font-size: 12px; }
+    .product-price { font-size: 13px; }
+    .edit-modal { padding: 18px; }
+}

@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* =========================================================
+   NOVO PRODUTO (produto-novo.html)
+	Autocontida, como as outras telas do comerciante. Não usa
+	css/comerciante-navigation.css porque esta página não tem menu
+   inferior — é um fluxo de "criar item", com um botão de voltar
+   no lugar do menu, igual ao padrão comum em apps de marketplace.
+========================================================= */
+
+:root {
+	--ink: #21183b;
+	--muted: #7e7890;
+	--purple: #5926c9;
+	--purple-dark: #321173;
+	--orange: #ff7a18;
+	--surface: #ffffff;
+	--background: #f7f5fb;
+	--line: #ebe7f3;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { max-width: 100%; overflow-x: hidden; }
+body {
+	margin: 0;
+	min-width: 320px;
+	width: 100%;
+	min-height: 100vh;
+	background: var(--background);
+	color: var(--ink);
+	font-family: "DM Sans", sans-serif;
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+img, svg, button { max-width: 100%; }
+
+.app { width: calc(100% - 2px); max-width: none; margin-right: auto; margin-left: auto; min-height: 100vh; padding-bottom: 48px; }
+
+/* ---------------------------------------------------------
+   CABEÇALHO
+   Mesmo gradiente roxo das outras telas, mas com um botão de
+   voltar no lugar do sino de notificação e sem busca.
+--------------------------------------------------------- */
+.header {
+	width: 100%;
+	padding: 22px max(22px, calc((100vw - 1180px) / 2)) 26px;
+	color: #fff;
+	background: linear-gradient(135deg, #6e2bd4, #321173);
+	border-radius: 0 0 34px 34px;
+	box-shadow: 0 18px 35px rgba(50, 17, 115, .17);
+}
+.header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.header-top h1 { margin: 0; font: 700 20px/1.2 "Space Grotesk", sans-serif; }
+.back-button, .header-spacer { flex: 0 0 38px; width: 38px; height: 38px; }
+.back-button { display: grid; place-items: center; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; color: #fff; background: rgba(255,255,255,.12); text-decoration: none; font-size: 22px; }
+.header-subtitle { margin: 12px 0 0; color: #ddd2f3; font-size: 13px; }
+
+/* ---------------------------------------------------------
+   CONTEÚDO / FORMULÁRIO
+--------------------------------------------------------- */
+.content { width: min(760px, calc(100% - 44px)); margin: 22px auto 0; }
+
+.form-section { margin-bottom: 26px; }
+.form-section h2 { margin: 0; font: 700 17px "Space Grotesk", sans-serif; }
+.form-hint { margin: 6px 0 14px; color: var(--muted); font-size: 12px; }
+
+/* Grade de categorias: cards pequenos e selecionáveis. */
+.category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.category-chip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	padding: 14px 6px;
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	background: var(--surface);
+	color: var(--ink);
+	font-size: 11px;
+	font-weight: 700;
+	text-align: center;
+	line-height: 1.25;
+}
+.category-chip span { font-size: 22px; }
+.category-chip.selected { border-color: var(--purple); background: #f4edff; color: var(--purple); box-shadow: 0 0 0 2px rgba(89, 38, 201, .12); }
+
+.form-note { min-height: 16px; margin: 8px 0 0; color: #e0392b; font-size: 12px; font-weight: 700; }
+
+/* Campos de texto/número, no mesmo estilo do modal de login/cadastro. */
+.field { display: block; margin-bottom: 14px; color: #56367d; font-size: 12px; font-weight: 800; }
+.field input { width: 100%; height: 44px; margin-top: 6px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; outline: 0; color: var(--ink); background: #fcfbfe; font-size: 13px; }
+.field input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(89, 38, 201, .12); }
+.field input[type="file"] { height: auto; padding: 10px 12px; border-style: dashed; cursor: pointer; }
+
+.image-preview { display: block; width: 120px; height: 120px; margin-top: 4px; border-radius: 12px; object-fit: cover; border: 1px solid var(--line); }
+
+/* Segmento: mesmas "pílulas" selecionáveis usadas na home. */
+.segment-field { border: 0; padding: 0; margin: 4px 0 0; }
+.segment-field legend { padding: 0; margin-bottom: 8px; color: #56367d; font-size: 12px; font-weight: 800; }
+.segment-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.segment-option { display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 20px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.segment-option:has(input:checked) { border-color: var(--purple); background: #f4edff; color: var(--purple); }
+.segment-option input { accent-color: var(--purple); }
+
+.primary-button { width: 100%; height: 48px; border: 0; border-radius: 12px; background: var(--orange); color: #fff; font-weight: 800; font-size: 14px; box-shadow: 0 10px 22px rgba(255, 122, 24, .3); }
+.primary-button:disabled { opacity: .55; cursor: not-allowed; box-shadow: none; }
+
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 10px 16px; border-radius: 20px; background: var(--ink); color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,.2); font-size: 12px; z-index: 40; transition: .2s; }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------------------------------------------------------
+   RESPONSIVO
+	Mesmos pontos de quebra usados nas outras telas do comerciante.
+--------------------------------------------------------- */
+@media (max-width: 850px) {
+	.category-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 520px) {
+	.header { padding: 18px 20px 22px; border-radius: 0 0 24px 24px; }
+	.content { width: calc(100% - 32px); margin-top: 18px; }
+	.category-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 751px) and (max-width: 1100px) {
+	.content { width: calc(100% - 48px); }
+}
+
+@media (min-width: 1101px) {
+	.header-top { width: min(1180px, calc(100% - 44px)); margin-right: auto; margin-left: auto; }
+	.header-subtitle { width: min(1180px, calc(100% - 44px)); margin-right: auto; margin-left: auto; }
+}

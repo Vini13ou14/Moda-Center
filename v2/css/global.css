@@ -1,0 +1,68 @@
+:root{
+  --purple:#5520bd;
+  --purple-dark:#3920a8;
+  --purple-light:#8634d4;
+  --orange:#ff7a18;
+}
+/* Regras basicas compartilhadas por toda a pagina. */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;background:#f1f1f1;color:#fff}
+button{font:inherit}
+input{font:inherit}
+
+/* Layout principal para telas grandes. */
+.app{width:100%;min-height:100vh;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 25%,#8138cf 0,#5d25c0 42%,#3520a7 100%)}
+.hero{min-height:calc(100vh - 210px);position:relative;overflow:hidden;padding:42px 7vw 190px}
+.hero:before,.hero:after{content:"";position:absolute;border:2px solid rgba(255,255,255,.11);border-radius:45px;width:280px;height:180px;pointer-events:none}
+.hero:before{left:-170px;top:70px;transform:rotate(28deg)}
+.hero:after{right:-170px;top:70px;transform:rotate(-28deg)}
+.orange-shape{position:absolute;left:-170px;bottom:105px;width:520px;height:230px;background:var(--orange);border-radius:0 0 100% 0;transform:rotate(22deg);z-index:1}
+.orange-shape:after{content:"";position:absolute;width:400px;height:170px;left:230px;top:75px;background:rgba(255,224,202,.95);border-radius:50%}
+.content{position:relative;z-index:5;width:min(540px,100%);margin:0 auto;text-align:center}
+.logo{width:145px;height:auto;display:block;margin:0 auto 12px}
+h1{margin:0;font-size:clamp(48px,6vw,76px);line-height:.88;letter-spacing:-3px;font-weight:900;text-shadow:0 3px 10px rgba(30,10,80,.28)}
+.city{margin-top:18px;font-size:clamp(14px,1.6vw,19px);letter-spacing:8px;font-weight:800;text-shadow:0 2px 7px rgba(30,10,80,.25)}
+.divider{width:230px;height:4px;margin:17px auto 13px;background:linear-gradient(90deg,#ff7a18 0 25%,#f4d12b 25% 50%,#4cae45 50% 75%,#29a8d0 75%)}
+.subtitle{font-size:15px;line-height:1.35;font-weight:700;text-shadow:0 2px 7px rgba(30,10,80,.28)}
+.subtitle b{font-weight:900}
+.photo{position:absolute;left:0;right:0;bottom:0;height:48%;background:url("../assets/images/moda2.png") center/cover no-repeat;clip-path:ellipse(72% 68% at 50% 74%);z-index:2;pointer-events:none}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(85,32,189,.05),transparent 40%)}
+.white-curve{position:absolute;z-index:3;left:-10%;right:-10%;bottom:-1px;height:105px;background:#fff;border-radius:50% 50% 0 0/80% 80% 0 0;transform:rotate(-1deg)}
+.bottom{min-height:210px;background:#fff;color:#6825be;position:relative;z-index:8;padding:0 7vw 24px}
+.nav{position:absolute;left:50%;top:-62px;transform:translateX(-50%);width:min(760px,86%);height:92px;background:rgba(255,255,255,.98);border-radius:20px 20px 0 0;box-shadow:0 -4px 18px rgba(0,0,0,.08);display:flex}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;font-size:10px;line-height:1.18;font-weight:800;letter-spacing:.15px;padding:4px 5px}
+.nav-icon-image{width:30px;height:30px;display:block;object-fit:contain}
+.icon{font-size:30px;font-weight:300;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.08))}
+.nav-item:nth-child(1) .icon{color:#7830ca}.nav-item:nth-child(2){color:#248fd1}.nav-item:nth-child(2) .icon{color:#248fd1}.nav-item:nth-child(3){color:#ff4c3f}.nav-item:nth-child(4){color:#ff7a18}.nav-item:nth-child(3) .icon{color:#ff4c3f}.nav-item:nth-child(4) .icon{color:#ff7a18}.nav-item:nth-child(5) .icon{color:#4cae45}
+.actions{width:min(420px,100%);margin:0 auto;padding-top:28px}
+.actions button{width:100%;height:44px;border-radius:11px;border:2px solid #8031d0;background:#fff;color:#6820b7;font-size:13px;font-weight:800;letter-spacing:.5px;cursor:pointer;margin-top:9px;box-shadow:0 4px 12px rgba(70,20,150,.10);transition:transform .15s,box-shadow .15s,filter .15s}
+.actions .primary{margin-top:0;border:0;color:#fff;background:linear-gradient(135deg,#9b45df,#6820b7);box-shadow:0 6px 16px rgba(91,25,170,.25)}
+.actions button:hover{filter:brightness(1.04);transform:translateY(-1px);box-shadow:0 7px 16px rgba(70,20,150,.16)}
+.actions button:active{transform:translateY(0)}
+.toast{position:fixed;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 16px;border-radius:20px;background:#fff;color:#6523ba;box-shadow:0 5px 20px rgba(0,0,0,.2);font-size:12px;z-index:20;transition:.2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.modal-backdrop{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(25,10,65,.58);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+.modal-backdrop.open{opacity:1;visibility:visible}
+.auth-modal{width:min(430px,100%);position:relative;padding:30px;border-radius:18px;background:#fff;color:#32146f;box-shadow:0 18px 55px rgba(21,5,68,.35);transform:translateY(12px);transition:transform .2s}
+.modal-backdrop.open .auth-modal{transform:translateY(0)}
+.close-modal{position:absolute;top:12px;right:14px;border:0;background:transparent;color:#6a35ad;font-size:25px;line-height:1;cursor:pointer}
+.auth-logo{width:72px;display:block;margin:0 auto 8px}.auth-modal h2{margin:0;text-align:center;font-size:25px;color:#5520bd}.auth-modal p{margin:7px 0 20px;text-align:center;color:#6f6680;font-size:13px}
+.auth-tabs{display:flex;border-bottom:1px solid #e4dcef;margin-bottom:19px}.auth-tab{flex:1;border:0;border-bottom:3px solid transparent;background:transparent;color:#8a7b9c;padding:9px 4px;cursor:pointer;font-weight:800;font-size:13px}.auth-tab.active{border-color:#ff7a18;color:#5520bd}
+.auth-form{display:none}.auth-form.active{display:block}.field{display:block;margin-bottom:13px;color:#56367d;font-size:12px;font-weight:800}.field input{width:100%;height:42px;margin-top:6px;padding:0 12px;border:1px solid #d7cbe6;border-radius:8px;outline:0;color:#34234c;background:#fcfbfe}.field input:focus{border-color:#8031d0;box-shadow:0 0 0 3px rgba(128,49,208,.12)}.profile-field{border:0;padding:0;margin:3px 0 15px}.profile-field legend{padding:0;color:#56367d;font-size:12px;font-weight:800}.profile-options{display:flex;gap:9px;margin-top:7px}.profile-option{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px;border:1px solid #d7cbe6;border-radius:8px;color:#6a4b8d;font-size:11px;font-weight:800;cursor:pointer}.profile-option:has(input:checked){border-color:#8031d0;background:#f4edff;color:#5520bd;box-shadow:0 0 0 2px rgba(128,49,208,.1)}.profile-option input{accent-color:#6820b7}
+.auth-submit{width:100%;height:43px;border:0;border-radius:9px;background:linear-gradient(135deg,#9b45df,#6820b7);color:#fff;font-weight:800;cursor:pointer;margin-top:5px}.auth-note{min-height:17px;margin:12px 0 0!important;text-align:center;color:#dc443b!important;font-size:12px!important;font-weight:700}
+.user-state{display:none;text-align:center;color:#5520bd;font-size:12px;font-weight:800;margin-top:10px}.user-state.visible{display:block}
+.account-page{display:none;min-height:100vh;padding:40px 24px;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#8138cf,#3920a8);color:#fff}.app.account-active .hero,.app.account-active .bottom{display:none}.app.account-active .account-page{display:flex}.account-content{width:min(460px,100%)}.account-content .auth-logo{width:105px;margin-bottom:18px}.account-content h2{margin:0;font-size:clamp(30px,5vw,48px);line-height:1;color:#fff}.account-content p{margin:14px 0 27px;font-size:16px;line-height:1.45;color:#f1eaff}.logout-button,.primary-button{width:min(280px,100%);height:46px;border:0;border-radius:10px;background:#ff7a18;color:#fff;font-weight:800;cursor:pointer;box-shadow:0 7px 18px rgba(35,8,85,.25)}
+/* .primary-button reaproveita o mesmo visual de .logout-button (botão
+   laranja de destaque) para outras telas que também precisam de um
+   botão de ação principal, como o formulário de configuração da loja
+   e o de cadastro de produto — sem duplicar a regra acima. */
+.primary-button:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
+.account-page .field,.account-page .profile-field{text-align:left;width:100%}
+.account-content form{width:100%}
+/* Ajuste de altura para desktop com viewport mais baixo. */
+@media (min-width:701px) and (max-height:1000px){.hero{min-height:760px}.content{transform:translateY(-60px)}}
+/* Reorganizacao responsiva para tablets e celulares. */
+@media (max-width:700px){body{background:#fff}.app{min-height:100svh}.hero{min-height:calc(100svh - 180px);padding:26px 20px 165px}.content{width:100%;max-width:390px}.logo{width:105px;margin-bottom:7px}h1{font-size:44px;letter-spacing:-2px}.city{font-size:14px;letter-spacing:6px;margin-top:13px}.divider{width:174px;height:3px;margin:13px auto 11px}.subtitle{font-size:12px}.orange-shape{left:-130px;bottom:95px;width:330px;height:145px}.orange-shape:after{width:280px;height:110px;left:150px;top:50px}.photo{height:42%;clip-path:ellipse(92% 74% at 54% 73%)}.white-curve{height:82px}.bottom{min-height:180px;padding:0 25px 7px}.nav{top:-55px;width:calc(100% - 48px);height:80px;border-radius:16px 16px 0 0}.nav-item{font-size:7.5px;gap:5px;font-weight:800;letter-spacing:0}.icon,.nav-icon-image{font-size:25px;width:25px;height:25px}.actions{padding-top:27px;max-width:280px}.actions button{height:38px;border-radius:9px;font-size:11px;margin-top:7px}.auth-modal{padding:27px 21px}.account-page{padding:28px 20px}}
+/* Reducoes finais para celulares muito pequenos. */
+@media (max-width:360px){.hero{padding-left:12px;padding-right:12px}.logo{width:92px}h1{font-size:39px}.city{font-size:12px;letter-spacing:5px}.subtitle{font-size:11px}.nav{width:calc(100% - 28px)}.nav-item{font-size:6.5px}.icon{font-size:22px}.actions{max-width:250px}}
