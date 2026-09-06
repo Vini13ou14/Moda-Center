@@ -1,0 +1,19 @@
+*{
+    box-sizing:border-box
+}
+
+html, body {
+    margin:0;
+    min-height:100%;
+    font-family:Arial,Helvetica,sans-serif
+}
+
+body{
+    min-height:100vh;
+    background:#f1f1f1;
+    color:#fff
+}
+
+button, input {
+    font:inherit
+}
