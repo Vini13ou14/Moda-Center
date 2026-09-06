@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5720B7">
+<title>Configure sua loja | Moda Center</title>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+
+<!-- =====================================================
+     CONFIGURAÇÃO DA LOJA (primeiro acesso do comerciante)
+    Só é exibida uma vez: depois que o comerciante preenche este
+     formulário, a próxima vez que ele fizer login vai direto
+    para inicio_comerciante.html (ver a checagem em js/main.js,
+     "stores[user.id]", e o redirecionamento no topo de
+     cadastro-loja.js).
+====================================================== -->
+
+<main class="account-page" style="display:flex;min-height:100vh">
+  <div class="account-content">
+
+    <img class="auth-logo" src="assets/images/logo.png" alt="Moda Center">
+
+    <h2>Configure sua loja</h2>
+    <p>Só mais um passo antes de começar a vender: conte um pouco sobre a sua loja.</p>
+
+    <form id="storeForm" novalidate>
+
+      <label class="field merchant-main-field">
+        <span class="merchant-main-label">Nome da loja</span>
+        <input type="text" name="storeName" placeholder="Ex.: Moda &amp; Estilo" required autocomplete="off">
+      </label>
+
+      <label class="field merchant-main-field">
+        <span class="merchant-main-label">Foto da loja (opcional)</span>
+        <input type="file" name="storeImage" id="storeImage" accept="image/*">
+      </label>
+
+      <div class="merchant-segment-section">
+        <div class="merchant-main-label merchant-segment-label">Segmento da loja</div>
+        <fieldset class="profile-field" aria-label="Segmento da loja">
+          <legend class="sr-only">Segmento da loja</legend>
+          <p class="profile-field-help">Selecione uma ou mais opções que combinam com os produtos da sua loja.</p>
+          <div class="profile-options">
+          <label class="profile-option">
+            <input type="checkbox" name="segment" value="masculino">
+            <span class="profile-option-icon" aria-hidden="true">👔</span>
+            <span class="profile-option-title">Masculino</span>
+            <span class="profile-option-hint">Moda masculina</span>
+          </label>
+          <label class="profile-option">
+            <input type="checkbox" name="segment" value="feminino">
+            <span class="profile-option-icon" aria-hidden="true">👗</span>
+            <span class="profile-option-title">Feminino</span>
+            <span class="profile-option-hint">Moda feminina</span>
+          </label>
+        </div>
+        <div class="profile-options">
+          <label class="profile-option">
+            <input type="checkbox" name="segment" value="infantil">
+            <span class="profile-option-icon" aria-hidden="true">🧸</span>
+            <span class="profile-option-title">Infantil</span>
+            <span class="profile-option-hint">Moda infantil</span>
+          </label>
+          <label class="profile-option">
+            <input type="checkbox" name="segment" value="unissex">
+            <span class="profile-option-icon" aria-hidden="true">✨</span>
+            <span class="profile-option-title">Unissex</span>
+            <span class="profile-option-hint">Para todos</span>
+          </label>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Mensagem de erro de validação (ex.: nenhum segmento marcado). -->
+      <p id="storeNote" style="min-height:16px;margin:2px 0 15px;color:#ffd8d8;font-size:12px;font-weight:700"></p>
+
+      <button class="primary-button" type="submit">SALVAR E CONTINUAR</button>
+
+    </form>
+
+  </div>
+</main>
+
+<script src="js/comerciante-guard.js"></script>
+<script src="js/cadastro-loja.js"></script>
+</body>
+</html>
