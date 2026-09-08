@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Placeholder de "produto sem foto".
+
+  Usado em duas situações (ver js/inicio_comerciante.js e
+  js/filtro_comerciante.js):
+    1) o comerciante cadastrou o produto sem escolher uma foto;
+    2) a foto salva não conseguiu carregar (evento onerror da <img>).
+
+  Antes, essas duas situações caíam para "assets/images/moda.png" —
+  uma foto aérea do prédio do shopping, sem nenhuma relação com o
+  produto. Este SVG substitui isso por um ícone neutro de "sem
+  imagem", no mesmo tom lilás já usado como fundo dos cards
+  (a variável de cor "line" nos arquivos CSS: #eee9f8), para deixar
+  claro que é a ausência de foto, e não um erro visual ou uma foto
+  errada.
+-->
+<!-- IMPORTANTE: um comentário XML/SVG não pode conter dois hifens
+     seguidos em nenhum lugar do texto (nem nesta própria frase, por
+     isso está escrita por extenso em vez de usar o sinal). -->
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Produto sem foto">
+	<rect width="400" height="400" fill="#eee9f8"/>
+	<g transform="translate(90,120)" fill="none" stroke="#b7a6dd" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+		<!-- moldura de foto -->
+		<rect x="0" y="0" width="220" height="160" rx="14"/>
+		<!-- "montanhas" + sol: ícone clássico de imagem indisponível -->
+		<circle cx="52" cy="46" r="16" fill="#b7a6dd" stroke="none"/>
+		<path d="M14 132 L74 78 L118 112 L156 68 L206 132 Z" fill="#b7a6dd" stroke="none"/>
+	</g>
+	<text x="200" y="330" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#9385b8">Sem foto do produto</text>
+</svg>
