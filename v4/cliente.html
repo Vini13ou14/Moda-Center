@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar - Moda Center</title>
+    <link rel="stylesheet" href="css/cliente.css">
+</head>
+<body>
+    <main class="client-app">
+        <header class="client-header">
+            <div>
+                <p class="eyebrow">MODA CENTER</p>
+                <h1>Encontre seu próximo look</h1>
+                <p id="clientGreeting">Produtos das lojas cadastradas</p>
+            </div>
+            <div class="client-header-actions">
+                <button id="clientLogout" class="logout-button" type="button">Sair</button>
+            </div>
+        </header>
+
+        <section class="client-content" aria-labelledby="catalogTitle">
+            <div class="catalog-heading">
+                <div>
+                    <p class="eyebrow">CATÁLOGO</p>
+                    <h2 id="catalogTitle">Produtos disponíveis</h2>
+                </div>
+                <input id="catalogSearch" type="search" placeholder="Buscar produto" aria-label="Buscar produto">
+            </div>
+            <p id="clientNote" class="client-note" role="status"></p>
+            <div id="clientProducts" class="client-products"></div>
+        </section>
+
+        <div id="productDetailsModal" class="product-details-modal" hidden>
+            <section class="product-details" role="dialog" aria-modal="true" aria-labelledby="productDetailsTitle">
+                <button id="closeProductDetails" class="cart-close" type="button" aria-label="Fechar detalhes">&times;</button>
+                <div id="productDetailsContent"></div>
+            </section>
+        </div>
+
+        <section id="cartPanel" class="cart-panel" hidden aria-labelledby="cartTitle">
+            <div class="cart-heading">
+                <div>
+                    <p class="eyebrow">SEU PEDIDO</p>
+                    <h2 id="cartTitle">Carrinho</h2>
+                </div>
+                <button id="closeCart" class="cart-close" type="button" aria-label="Fechar carrinho">&times;</button>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+                <strong>Total <span id="cartTotal">R$ 0,00</span></strong>
+                <button id="continueShopping" class="continue-button" type="button">Continuar comprando</button>
+                <button id="checkoutButton" class="checkout-button" type="button">Ir para o carrinho e finalizar compra</button>
+            </div>
+        </section>
+
+        <nav class="client-bottom-navigation" aria-label="Navegação do cliente">
+            <button id="cartButton" class="client-nav-item" type="button" aria-label="Abrir carrinho"><span>🛒</span><strong>Carrinho</strong><b id="cartCount">0</b></button>
+            <a class="client-nav-item" href="minhas-compras.html" aria-label="Abrir minhas compras"><span>📦</span><strong>Minhas compras</strong></a>
+            <a id="clientChatButton" class="client-nav-item" href="chat_comerciante.html" aria-label="Abrir conversas"><span>💬</span><strong>Conversas</strong><b id="clientChatCount">0</b></a>
+            <a class="client-nav-item" href="perfil_cliente.html" aria-label="Abrir perfil"><span>👤</span><strong>Perfil</strong></a>
+        </nav>
+    </main>
+    <script src="js/cliente.js"></script>
+    <script src="js/chat-badge.js"></script>
+</body>
+</html>

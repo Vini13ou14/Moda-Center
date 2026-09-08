@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#5720B7">
+    <title>Novo produto - Moda Center</title>
+    <link rel="stylesheet" href="css/produto-novo.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CADASTRO DE PRODUTO (produto-novo.html)
+         Acessada pelo botão flutuante "+" e pelo convite de
+         "Cadastrar meu primeiro produto" em inicio_comerciante.html.
+         Ao salvar, o produto entra em "modaCenterProducts" (ver
+         js/produto-novo.js) e passa a aparecer em "Seus produtos".
+    ====================================================== -->
+
+    <main class="app">
+
+        <header class="header">
+            <div class="header-top">
+                <a class="back-button" href="inicio_comerciante.html" aria-label="Voltar">‹</a>
+                <h1>Novo produto</h1>
+                <span class="header-spacer" aria-hidden="true"></span>
+            </div>
+            <p class="header-subtitle">Preencha as informações abaixo para cadastrar um item na sua loja.</p>
+        </header>
+
+        <form id="productForm" class="content" novalidate>
+
+            <!-- =============================================
+                 TIPO DE PRODUTO (categoria)
+                 Escolha visual, em vez de uma lista suspensa —
+                 clicar em um card seleciona aquele tipo (só um
+                 por vez). A categoria escolhida fica guardada no
+                 campo escondido #categoryInput.
+            ============================================== -->
+            <section class="form-section">
+                <h2>Tipo de produto</h2>
+                <p class="form-hint">Escolha a categoria que melhor descreve este item.</p>
+
+                <div class="category-picker">
+                    <button type="button" class="category-picker-button" id="categoryToggle" aria-haspopup="listbox" aria-expanded="false">Escolher categoria <span>⌄</span></button>
+                    <div class="category-menu" id="categoryGrid" role="listbox" hidden>
+                        <div id="categoryOptions"></div>
+                        <label class="category-custom-field">Nova categoria
+                            <input id="newCategoryInput" type="text" placeholder="Ex.: Conjuntos">
+                            <button id="addCategoryButton" type="button">Criar categoria</button>
+                        </label>
+                    </div>
+                </div>
+                <input type="hidden" name="category" id="categoryInput" required>
+                <p class="form-note" id="categoryNote"></p>
+            </section>
+
+            <!-- =============================================
+                 INFORMAÇÕES DO PRODUTO
+            ============================================== -->
+            <section class="form-section">
+                <h2>Informações do produto</h2>
+
+                <label class="field">
+                    Nome do produto
+                    <input type="text" name="name" placeholder="Ex.: Blazer Slim Fit" required autocomplete="off">
+                </label>
+
+                <label class="field">
+                    Preço (R$)
+                    <input type="number" name="price" placeholder="Ex.: 129.90" min="0" step="0.01" required>
+                </label>
+
+                <label class="field">
+                    Quantidade disponível
+                    <input type="number" name="quantity" min="0" step="1" value="0" required>
+                </label>
+
+                <fieldset class="variation-field">
+                    <legend>Variações do produto (opcional)</legend>
+                    <p class="form-hint">Cadastre o estoque de cada combinação de cor e tamanho. O total será calculado automaticamente.</p>
+                    <div id="variationRows" class="variation-rows"></div>
+                    <button id="addVariation" class="secondary-button" type="button">+ Adicionar cor e tamanho</button>
+                </fieldset>
+
+                <label class="field">
+                    Descrição do produto
+                    <textarea name="description" rows="4" placeholder="Descreva tecido, tamanho, cor e outros detalhes importantes."></textarea>
+                </label>
+
+                <fieldset class="segment-field wholesale-field">
+                    <legend>Vende no atacado?</legend>
+                    <label class="wholesale-toggle"><input type="checkbox" id="wholesaleEnabled" name="wholesaleEnabled"><span>Vendo este produto no atacado</span></label>
+                    <div id="wholesaleFields" hidden>
+                        <label class="field">A partir de quantas peças
+                            <input type="number" name="wholesaleMinQuantity" min="2" step="1" value="3">
+                        </label>
+                        <label class="field">Preço por peça no atacado (R$)
+                            <input type="number" name="wholesalePrice" min="0.01" step="0.01" placeholder="Ex.: 20.00">
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="segment-field">
+                    <legend>Segmento (selecione um ou mais)</legend>
+                    <div class="segment-options">
+                        <label class="segment-option"><input type="checkbox" name="segment" value="masculino"><span>Masculino</span></label>
+                        <label class="segment-option"><input type="checkbox" name="segment" value="feminino"><span>Feminino</span></label>
+                        <label class="segment-option"><input type="checkbox" name="segment" value="infantil"><span>Infantil</span></label>
+                        <label class="segment-option"><input type="checkbox" name="segment" value="unissex"><span>Unissex</span></label>
+                    </div>
+                </fieldset>
+
+                <label class="field">
+                    Foto do produto (opcional)
+                    <input type="file" name="image" id="imageInput" accept="image/*">
+                </label>
+                <img id="imagePreview" class="image-preview" alt="Pré-visualização do produto" hidden>
+
+            </section>
+
+            <p class="form-note" id="formNote"></p>
+
+            <button class="primary-button" type="submit">Cadastrar produto</button>
+
+        </form>
+
+        <div class="toast" id="toast"></div>
+
+    </main>
+
+    <script src="js/comerciante-guard.js"></script>
+    <script src="js/produto-novo.js"></script>
+
+</body>
+
+</html>
